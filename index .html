@@ -3,303 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>TOURNAMENT MOBILE LEGEND SEASON 1 SRILANGKA</title>
+<title>TURNAMEN 10 TIM</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#005bea,#00c6fb,#ffd900);
+ min-height:100vh;padding:15px;color:#111
 }
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #005bea, #00c6fb, #ffd900);
-    min-height: 100vh;
-    padding: 15px;
+.container{max-width:1200px;margin:auto}
+.header{text-align:center;color:white;padding:10px}
+.header h1{font-size:32px;margin:5px;text-shadow:2px 2px 5px #222}
+.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px}
+.menu button{
+ border:0;border-radius:10px;padding:14px 5px;background:white;
+ color:#005bea;font-weight:bold;cursor:pointer
 }
-
-.container {
-    max-width: 1100px;
-    margin: auto;
+.menu button:hover{background:#ffd900;color:#111}
+.page{
+ display:none;background:white;border-radius:18px;padding:20px;
+ box-shadow:0 8px 25px #0004
 }
-
-.header {
-    text-align: center;
-    color: white;
-    padding: 15px;
+.page.active{display:block}
+h2{text-align:center;color:#005bea}
+.card{
+ border:2px solid #005bea;border-radius:14px;padding:15px;margin-bottom:18px
 }
-
-.header h1 {
-    margin: 5px;
-    font-size: 32px;
-    text-shadow: 2px 2px 5px #222;
+.card-title{
+ background:#005bea;color:white;padding:12px;border-radius:9px;
+ text-align:center;font-weight:bold;margin-bottom:12px
 }
-
-.header p {
-    margin: 5px;
-    font-weight: bold;
+input,select{
+ width:100%;padding:11px;border:2px solid #ddd;border-radius:8px;
+ font-size:15px
 }
-
-/* MENU */
-
-.menu {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 15px;
+.team-row{
+ display:grid;grid-template-columns:45px 1fr 1fr;gap:8px;margin:8px 0
 }
-
-.menu button {
-    border: none;
-    padding: 15px 8px;
-    border-radius: 12px;
-    background: white;
-    color: #005bea;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 12px rgba(0,0,0,.25);
+.number{background:#ffd900;padding:11px;border-radius:8px;text-align:center;font-weight:bold}
+.players{
+ display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px
 }
-
-.menu button:hover {
-    background: #ffe000;
-    color: #111;
-    transform: translateY(-2px);
+.table-box{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:700px}
+th{background:#005bea;color:white;padding:11px}
+td{border:1px solid #ddd;padding:8px;text-align:center}
+tr:nth-child(even){background:#f5f5f5}
+.score{
+ width:55px;text-align:center;font-weight:bold
 }
-
-/* CONTENT */
-
-.page {
-    display: none;
-    background: white;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,.25);
+.btn{
+ border:0;border-radius:9px;padding:12px 18px;background:#ffd900;
+ font-weight:bold;cursor:pointer;margin:5px 0
 }
-
-.page.active {
-    display: block;
+.btn-blue{background:#005bea;color:white}
+.bracket{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:15px
 }
-
-.page h2 {
-    text-align: center;
-    color: #005bea;
-    margin-top: 0;
+.match{
+ background:#fff7b3;border:2px solid #005bea;border-radius:12px;
+ padding:15px;text-align:center;font-weight:bold;margin:15px 0
 }
-
-/* GROUP */
-
-.group {
-    border: 3px solid #005bea;
-    border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 20px;
+.savage-box,.mvp-box{
+ padding:25px;border-radius:15px;text-align:center;
+ background:#111;color:white
 }
-
-.group-title {
-    background: #005bea;
-    color: white;
-    padding: 12px;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
+.savage-box h2,.mvp-box h2{color:#ffd900}
+.final{
+ background:#005bea;color:white;text-align:center;padding:25px;border-radius:18px
 }
-
-.team {
-    display: grid;
-    grid-template-columns: 60px 1fr 1fr;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.team span {
-    background: #ffd900;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.team input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-/* TABLE */
-
-.table-box {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 650px;
-}
-
-th {
-    background: #005bea;
-    color: white;
-    padding: 12px;
-}
-
-td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background: #f5f5f5;
-}
-
-td input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-/* PLAYOFF */
-
-.bracket {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    align-items: center;
-}
-
-.round {
-    text-align: center;
-}
-
-.round h3 {
-    background: #005bea;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.match {
-    background: #fff8bd;
-    border: 2px solid #005bea;
-    padding: 15px;
-    border-radius: 12px;
-    margin: 15px 0;
-    font-weight: bold;
-}
-
-/* SAVAGE */
-
-.savage {
-    background: linear-gradient(135deg, #111, #333);
-    color: white;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.savage h2 {
-    color: #ffd900;
-}
-
-.savage-box {
-    background: #ffd900;
-    color: #111;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 15px;
-}
-
-/* FINAL */
-
-.final-box {
-    border: 4px solid #ffd900;
-    background: #005bea;
-    color: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.final-team {
-    background: white;
-    color: #005bea;
-    padding: 15px;
-    margin: 12px;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* MVP */
-
-.mvp {
-    text-align: center;
-    padding: 25px;
-}
-
-.mvp-icon {
-    font-size: 70px;
-}
-
-.mvp-name {
-    background: linear-gradient(135deg, #ffd900, #ffb300);
-    padding: 20px;
-    border-radius: 15px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #111;
-}
-
-/* BUTTON */
-
-.save {
-    width: 100%;
-    padding: 15px;
-    background: #ffd900;
-    color: #111;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.save:hover {
-    background: #ffbd00;
-}
-
-/* MOBILE */
-
-@media(max-width:700px) {
-
-    .menu {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .header h1 {
-        font-size: 24px;
-    }
-
-    .team {
-        grid-template-columns: 40px 1fr;
-    }
-
-    .team input:last-child {
-        grid-column: 2;
-    }
-
-    .bracket {
-        grid-template-columns: 1fr;
-    }
-
+.final-team{background:white;color:#005bea;padding:15px;margin:10px;border-radius:10px;font-size:20px;font-weight:bold}
+.status{text-align:center;font-weight:bold;color:#005bea;margin:10px}
+@media(max-width:700px){
+ .menu{grid-template-columns:repeat(2,1fr)}
+ .header h1{font-size:24px}
+ .players{grid-template-columns:1fr}
+ .team-row{grid-template-columns:35px 1fr}
+ .team-row input:last-child{grid-column:2}
+ .bracket{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -308,583 +90,600 @@ td input {
 
 <div class="container">
 
-<!-- HEADER -->
-
 <div class="header">
-    <h1>🏆 TOURNAMENT MLBB SEASON 1 SRILANGKA🏆</h1>
-    <p>GROUP • PLAYOFF • SAVAGE • FINAL • MVP</p>
+<h1>🏆 TURNAMEN 10 TIM 🏆</h1>
+<p>GROUP • PLAYOFF • SAVAGE • FINAL • MVP</p>
 </div>
-
-
-<!-- MENU -->
 
 <div class="menu">
-
-    <button onclick="openPage('group')">
-        👥 NAMA GROUP
-    </button>
-
-    <button onclick="openPage('teams')">
-        ⚽ 10 TIM & PEMAIN
-    </button>
-
-    <button onclick="openPage('schedule')">
-        📅 JADWAL
-    </button>
-
-    <button onclick="openPage('ranking')">
-        📊 PERINGKAT GROUP
-    </button>
-
-    <button onclick="openPage('playoff')">
-        🏆 PLAYOFF
-    </button>
-
-    <button onclick="openPage('savage')">
-        🔥 SAVAGE
-    </button>
-
-    <button onclick="openPage('final')">
-        🥇 FINAL
-    </button>
-
-    <button onclick="openPage('mvp')">
-        👑 MVP
-    </button>
-
+<button onclick="showPage('teams')">👥 NAMA GROUP & TIM</button>
+<button onclick="showPage('players')">⚽ 50 PEMAIN</button>
+<button onclick="showPage('schedule')">📅 JADWAL</button>
+<button onclick="showPage('ranking')">📊 PERINGKAT</button>
+<button onclick="showPage('playoff')">🏆 PLAYOFF</button>
+<button onclick="showPage('savage')">🔥 SAVAGE</button>
+<button onclick="showPage('final')">🥇 FINAL</button>
+<button onclick="showPage('mvp')">👑 MVP</button>
 </div>
 
 
-<!-- GROUP -->
+<!-- ================= TIM ================= -->
 
-<div id="group" class="page active">
+<div id="teams" class="page active">
+<h2>NAMA GROUP & 10 TIM</h2>
 
-<h2>NAMA GROUP</h2>
-
-<div class="group">
-
-<div class="group-title">
-GROUP A — 5 TIM
+<div class="card">
+<div class="card-title">GROUP A — 5 TIM</div>
+<div id="groupA"></div>
 </div>
 
-<div class="team">
-<span>1</span>
-<input placeholder="Nama Tim A1">
-<input placeholder="Nama Pemain A1">
+<div class="card">
+<div class="card-title">GROUP B — 5 TIM</div>
+<div id="groupB"></div>
 </div>
 
-<div class="team">
-<span>2</span>
-<input placeholder="Nama Tim A2">
-<input placeholder="Nama Pemain A2">
-</div>
-
-<div class="team">
-<span>3</span>
-<input placeholder="Nama Tim A3">
-<input placeholder="Nama Pemain A3">
-</div>
-
-<div class="team">
-<span>4</span>
-<input placeholder="Nama Tim A4">
-<input placeholder="Nama Pemain A4">
-</div>
-
-<div class="team">
-<span>5</span>
-<input placeholder="Nama Tim A5">
-<input placeholder="Nama Pemain A5">
-</div>
-
+<button class="btn btn-blue" onclick="updateAll()">🔄 UPDATE SEMUA DATA</button>
 </div>
 
 
-<div class="group">
+<!-- ================= PEMAIN ================= -->
 
-<div class="group-title">
-GROUP B — 5 TIM
-</div>
-
-<div class="team">
-<span>1</span>
-<input placeholder="Nama Tim B1">
-<input placeholder="Nama Pemain B1">
-</div>
-
-<div class="team">
-<span>2</span>
-<input placeholder="Nama Tim B2">
-<input placeholder="Nama Pemain B2">
-</div>
-
-<div class="team">
-<span>3</span>
-<input placeholder="Nama Tim B3">
-<input placeholder="Nama Pemain B3">
-</div>
-
-<div class="team">
-<span>4</span>
-<input placeholder="Nama Tim B4">
-<input placeholder="Nama Pemain B4">
-</div>
-
-<div class="team">
-<span>5</span>
-<input placeholder="Nama Tim B5">
-<input placeholder="Nama Pemain B5">
-</div>
-
-</div>
-
-<button class="save" onclick="simpan()">
-💾 SIMPAN DATA
-</button>
-
+<div id="players" class="page">
+<h2>⚽ 10 TIM × 5 PEMAIN = 50 PEMAIN</h2>
+<div id="playerList"></div>
+<button class="btn btn-blue" onclick="updateAll()">🔄 UPDATE SEMUA DATA</button>
 </div>
 
 
-<!-- 10 TIM -->
-
-<div id="teams" class="page">
-
-<h2>⚽ 10 TIM & PEMAIN</h2>
-
-<div class="table-box">
-
-<table>
-
-<tr>
-<th>No</th>
-<th>Nama Tim</th>
-<th>Nama Pemain</th>
-<th>Group</th>
-</tr>
-
-<script>
-for(let i=1;i<=10;i++){
-    let group = i <= 5 ? "A" : "B";
-
-    document.write(`
-    <tr>
-        <td>${i}</td>
-        <td><input placeholder="Nama Tim ${i}"></td>
-        <td><input placeholder="Nama Pemain ${i}"></td>
-        <td><b>GROUP ${group}</b></td>
-    </tr>
-    `);
-}
-</script>
-
-</table>
-
-</div>
-
-<br>
-
-<button class="save" onclick="simpan()">
-💾 SIMPAN TIM & PEMAIN
-</button>
-
-</div>
-
-
-<!-- JADWAL -->
+<!-- ================= JADWAL ================= -->
 
 <div id="schedule" class="page">
+<h2>📅 JADWAL & SKOR PERTANDINGAN</h2>
 
-<h2>📅 JADWAL PERTANDINGAN</h2>
+<p class="status">
+Masukkan skor. Peringkat Group akan otomatis diperbarui.
+</p>
 
 <div class="table-box">
-
 <table>
-
+<thead>
 <tr>
 <th>No</th>
 <th>Group</th>
 <th>Pertandingan</th>
-<th>Tanggal</th>
 <th>Jam</th>
 <th>Skor</th>
 </tr>
-
-<tr>
-<td>1</td>
-<td>A</td>
-<td>Tim A1 vs Tim A2</td>
-<td>--/--/----</td>
-<td>13:00</td>
-<td>0 - 0</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>A</td>
-<td>Tim A3 vs Tim A4</td>
-<td>--/--/----</td>
-<td>14:00</td>
-<td>0 - 0</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>A</td>
-<td>Tim A5 vs Tim A1</td>
-<td>--/--/----</td>
-<td>15:00</td>
-<td>0 - 0</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>B</td>
-<td>Tim B1 vs Tim B2</td>
-<td>--/--/----</td>
-<td>16:00</td>
-<td>0 - 0</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>B</td>
-<td>Tim B3 vs Tim B4</td>
-<td>--/--/----</td>
-<td>17:00</td>
-<td>0 - 0</td>
-</tr>
-
-<tr>
-<td>6</td>
-<td>B</td>
-<td>Tim B5 vs Tim B1</td>
-<td>--/--/----</td>
-<td>18:00</td>
-<td>0 - 0</td>
-</tr>
-
+</thead>
+<tbody id="scheduleBody"></tbody>
 </table>
-
+</div>
 </div>
 
-</div>
 
-
-<!-- RANKING -->
+<!-- ================= RANKING ================= -->
 
 <div id="ranking" class="page">
-
 <h2>📊 PERINGKAT GROUP</h2>
 
-<div class="group">
-
-<div class="group-title">
-GROUP A
-</div>
-
+<div class="card">
+<div class="card-title">GROUP A</div>
 <div class="table-box">
-
 <table>
-
+<thead>
 <tr>
-<th>Pos</th>
-<th>Tim</th>
-<th>Main</th>
-<th>Menang</th>
-<th>Kalah</th>
-<th>Poin</th>
+<th>Pos</th><th>Tim</th><th>Main</th>
+<th>Menang</th><th>Seri</th><th>Kalah</th><th>Poin</th>
 </tr>
-
-<tr>
-<td>1</td>
-<td>Tim A1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Tim A2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Tim A3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>Tim A4</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>Tim A5</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
+</thead>
+<tbody id="rankA"></tbody>
 </table>
-
+</div>
 </div>
 
-</div>
-
-
-<div class="group">
-
-<div class="group-title">
-GROUP B
-</div>
-
+<div class="card">
+<div class="card-title">GROUP B</div>
 <div class="table-box">
-
 <table>
-
+<thead>
 <tr>
-<th>Pos</th>
-<th>Tim</th>
-<th>Main</th>
-<th>Menang</th>
-<th>Kalah</th>
-<th>Poin</th>
+<th>Pos</th><th>Tim</th><th>Main</th>
+<th>Menang</th><th>Seri</th><th>Kalah</th><th>Poin</th>
 </tr>
-
-<tr>
-<td>1</td>
-<td>Tim B1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Tim B2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Tim B3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>Tim B4</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>Tim B5</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-
+</thead>
+<tbody id="rankB"></tbody>
 </table>
-
 </div>
-
 </div>
-
 </div>
 
 
-<!-- PLAYOFF -->
+<!-- ================= PLAYOFF ================= -->
 
 <div id="playoff" class="page">
-
 <h2>🏆 PLAYOFF</h2>
 
 <div class="bracket">
 
-<div class="round">
-
-<h3>SEMIFINAL</h3>
+<div>
+<h3 style="text-align:center">SEMIFINAL</h3>
 
 <div class="match">
-GROUP A #1<br>
-VS<br>
-GROUP B #2
+<span id="semi1A">GROUP A #1</span>
+<br>VS<br>
+<span id="semi1B">GROUP B #2</span>
 </div>
 
 <div class="match">
-GROUP B #1<br>
-VS<br>
-GROUP A #2
+<span id="semi2A">GROUP B #1</span>
+<br>VS<br>
+<span id="semi2B">GROUP A #2</span>
+</div>
 </div>
 
-</div>
-
-
-<div class="round">
-
-<h3>FINAL</h3>
+<div>
+<h3 style="text-align:center">FINAL</h3>
 
 <div class="match">
-PEMENANG SEMIFINAL 1<br>
-VS<br>
+PEMENANG SEMIFINAL 1
+<br>VS<br>
 PEMENANG SEMIFINAL 2
 </div>
-
 </div>
 
-
-<div class="round">
-
-<h3>JUARA</h3>
+<div>
+<h3 style="text-align:center">JUARA</h3>
 
 <div class="match">
 🏆 JUARA TURNAMEN
 </div>
-
 </div>
 
 </div>
-
 </div>
 
 
-<!-- SAVAGE -->
+<!-- ================= SAVAGE ================= -->
 
 <div id="savage" class="page">
-
-<div class="savage">
-
-<h2>🔥 SAVAGE 🔥</h2>
-
-<p>
-PEMAIN DENGAN PERFORMA TERBAIK
-</p>
-
 <div class="savage-box">
+<h2>🔥 SAVAGE 🔥</h2>
+<p>Pemain dengan jumlah Savage terbanyak</p>
 
-<h3>SAVAGE PLAYER</h3>
+<input id="savagePlayer" placeholder="Nama pemain Savage">
+<br><br>
+<input id="savageCount" type="number" min="0" placeholder="Jumlah Savage">
 
-<h1>________________</h1>
+<br><br>
+<button class="btn" onclick="saveSavage()">💾 SIMPAN SAVAGE</button>
 
-<p>Jumlah Savage: ______</p>
-
+<h2 id="savageResult">—</h2>
+</div>
 </div>
 
-</div>
 
-</div>
-
-
-<!-- FINAL -->
+<!-- ================= FINAL ================= -->
 
 <div id="final" class="page">
+<div class="final">
+<h2 style="color:#ffd900">🥇 GRAND FINAL 🥇</h2>
 
-<h2>🥇 GRAND FINAL</h2>
-
-<div class="final-box">
-
-<h2>GRAND FINAL</h2>
-
-<div class="final-team">
+<div class="final-team" id="finalTeam1">
 FINALIS 1
 </div>
 
-<h2>VS</h2>
+<h2 style="color:white">VS</h2>
 
-<div class="final-team">
+<div class="final-team" id="finalTeam2">
 FINALIS 2
 </div>
 
-<h1>SKOR</h1>
+<h2 style="color:white">SKOR</h2>
 
 <h1>0 — 0</h1>
-
+</div>
 </div>
 
-</div>
 
-
-<!-- MVP -->
+<!-- ================= MVP ================= -->
 
 <div id="mvp" class="page">
+<div class="mvp-box">
+<h2>👑 MVP TURNAMEN 👑</h2>
 
-<div class="mvp">
+<input id="mvpName" placeholder="Nama pemain MVP">
+<br><br>
+<input id="mvpTeam" placeholder="Nama tim">
 
-<div class="mvp-icon">
-👑
+<br><br>
+<button class="btn" onclick="saveMVP()">👑 SIMPAN MVP</button>
+
+<h2 id="mvpResult">—</h2>
 </div>
-
-<h2>MOST VALUABLE PLAYER</h2>
-
-<div class="mvp-name">
-NAMA MVP
 </div>
-
-<br>
-
-<p>🏆 Pemain Terbaik Turnamen</p>
-
-<p>Total Poin: ______</p>
-
-<p>Total Menang: ______</p>
-
-<p>Total Savage: ______</p>
-
-</div>
-
-</div>
-
 
 </div>
 
 
 <script>
 
-function openPage(page) {
+/* =========================================
+   DATA 10 TIM
+========================================= */
 
-    document.querySelectorAll(".page").forEach(function(item) {
-        item.classList.remove("active");
+const teams = [];
+
+for(let i=0;i<10;i++){
+
+    teams.push({
+        name: "TIM " + (i+1),
+        group: i < 5 ? "A" : "B",
+        players: ["","","","",""],
+        played:0,
+        win:0,
+        draw:0,
+        loss:0,
+        points:0
     });
 
-    document.getElementById(page).classList.add("active");
+}
+
+
+/* =========================================
+   TAMPILKAN TIM
+========================================= */
+
+function renderTeams(){
+
+    const A=document.getElementById("groupA");
+    const B=document.getElementById("groupB");
+
+    A.innerHTML="";
+    B.innerHTML="";
+
+    teams.forEach((team,index)=>{
+
+        const html=`
+        <div class="team-row">
+            <div class="number">${index%5+1}</div>
+
+            <input
+                value="${team.name}"
+                placeholder="Nama Tim"
+                oninput="teams[${index}].name=this.value; updateAll();"
+            >
+
+            <input
+                placeholder="Nama Kapten"
+            >
+        </div>`;
+
+        if(team.group==="A") A.innerHTML+=html;
+        else B.innerHTML+=html;
+
+    });
+}
+
+
+/* =========================================
+   PEMAIN 50 ORANG
+========================================= */
+
+function renderPlayers(){
+
+    const box=document.getElementById("playerList");
+    box.innerHTML="";
+
+    teams.forEach((team,t)=>{
+
+        let html=`
+        <div class="card">
+        <div class="card-title">
+        GROUP ${team.group} — ${team.name}
+        </div>
+
+        <div class="players">`;
+
+        for(let p=0;p<5;p++){
+
+            html+=`
+            <input
+                value="${team.players[p]}"
+                placeholder="Pemain ${p+1}"
+                oninput="teams[${t}].players[${p}]=this.value"
+            >`;
+
+        }
+
+        html+=`</div></div>`;
+
+        box.innerHTML+=html;
+
+    });
+}
+
+
+/* =========================================
+   JADWAL
+========================================= */
+
+const matches=[];
+
+function createSchedule(){
+
+    matches.length=0;
+
+    ["A","B"].forEach(group=>{
+
+        const ids=teams
+            .map((t,i)=>t.group===group?i:-1)
+            .filter(i=>i>=0);
+
+        for(let i=0;i<ids.length;i++){
+
+            for(let j=i+1;j<ids.length;j++){
+
+                matches.push({
+                    a:ids[i],
+                    b:ids[j],
+                    scoreA:"",
+                    scoreB:""
+                });
+
+            }
+
+        }
+
+    });
+
+    renderSchedule();
+}
+
+
+function renderSchedule(){
+
+    const body=document.getElementById("scheduleBody");
+    body.innerHTML="";
+
+    matches.forEach((m,i)=>{
+
+        const a=teams[m.a];
+        const b=teams[m.b];
+
+        body.innerHTML+=`
+        <tr>
+            <td>${i+1}</td>
+            <td>GROUP ${a.group}</td>
+            <td>
+                <b>${a.name}</b>
+                vs
+                <b>${b.name}</b>
+            </td>
+            <td>${13+i}:00</td>
+
+            <td>
+                <input class="score"
+                    type="number"
+                    min="0"
+                    value="${m.scoreA}"
+                    onchange="setScore(${i},'a',this.value)"
+                >
+
+                -
+
+                <input class="score"
+                    type="number"
+                    min="0"
+                    value="${m.scoreB}"
+                    onchange="setScore(${i},'b',this.value)"
+                >
+            </td>
+        </tr>`;
+
+    });
+}
+
+
+/* =========================================
+   SKOR OTOMATIS
+========================================= */
+
+function setScore(index,side,value){
+
+    let number=value==="" ? "" : Math.max(0,parseInt(value)||0);
+
+    matches[index][side==="a"?"scoreA":"scoreB"]=number;
+
+    calculateRanking();
+}
+
+
+/* =========================================
+   PERINGKAT
+========================================= */
+
+function calculateRanking(){
+
+    teams.forEach(t=>{
+        t.played=0;
+        t.win=0;
+        t.draw=0;
+        t.loss=0;
+        t.points=0;
+    });
+
+    matches.forEach(m=>{
+
+        if(m.scoreA==="" || m.scoreB==="") return;
+
+        const a=teams[m.a];
+        const b=teams[m.b];
+
+        const sa=Number(m.scoreA);
+        const sb=Number(m.scoreB);
+
+        a.played++;
+        b.played++;
+
+        if(sa>sb){
+            a.win++;
+            a.points+=3;
+            b.loss++;
+        }
+        else if(sb>sa){
+            b.win++;
+            b.points+=3;
+            a.loss++;
+        }
+        else{
+            a.draw++;
+            b.draw++;
+            a.points++;
+            b.points++;
+        }
+
+    });
+
+    renderRanking("A","rankA");
+    renderRanking("B","rankB");
+    updatePlayoff();
+
+}
+
+
+function renderRanking(group,id){
+
+    const list=teams
+        .filter(t=>t.group===group)
+        .sort((a,b)=>b.points-a.points);
+
+    const body=document.getElementById(id);
+    body.innerHTML="";
+
+    list.forEach((t,i)=>{
+
+        body.innerHTML+=`
+        <tr>
+            <td><b>${i+1}</b></td>
+            <td>${t.name}</td>
+            <td>${t.played}</td>
+            <td>${t.win}</td>
+            <td>${t.draw}</td>
+            <td>${t.loss}</td>
+            <td><b>${t.points}</b></td>
+        </tr>`;
+
+    });
+
+}
+
+
+/* =========================================
+   PLAYOFF OTOMATIS
+========================================= */
+
+function getRank(group,pos){
+
+    return teams
+        .filter(t=>t.group===group)
+        .sort((a,b)=>b.points-a.points)[pos-1]?.name || "—";
+
+}
+
+
+function updatePlayoff(){
+
+    document.getElementById("semi1A").textContent=getRank("A",1);
+    document.getElementById("semi1B").textContent=getRank("B",2);
+
+    document.getElementById("semi2A").textContent=getRank("B",1);
+    document.getElementById("semi2B").textContent=getRank("A",2);
+
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+function showPage(id){
+
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
 
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
+
 }
 
 
-function simpan() {
-    alert("✅ Data berhasil disimpan di halaman ini!");
+/* =========================================
+   UPDATE
+========================================= */
+
+function updateAll(){
+
+    renderTeams();
+    renderPlayers();
+    renderSchedule();
+    calculateRanking();
+
 }
+
+
+/* =========================================
+   SAVAGE
+========================================= */
+
+function saveSavage(){
+
+    const name=document.getElementById("savagePlayer").value.trim();
+    const count=document.getElementById("savageCount").value;
+
+    if(!name){
+        alert("Masukkan nama pemain.");
+        return;
+    }
+
+    document.getElementById("savageResult").textContent=
+        "🔥 "+name+" — "+(count||0)+" SAVAGE";
+
+}
+
+
+/* =========================================
+   MVP
+========================================= */
+
+function saveMVP(){
+
+    const name=document.getElementById("mvpName").value.trim();
+    const team=document.getElementById("mvpTeam").value.trim();
+
+    if(!name){
+        alert("Masukkan nama MVP.");
+        return;
+    }
+
+    document.getElementById("mvpResult").textContent=
+        "👑 "+name+" — "+(team||"Tanpa Tim");
+
+}
+
+
+/* =========================================
+   MULAI
+========================================= */
+
+renderTeams();
+renderPlayers();
+createSchedule();
+calculateRanking();
 
 </script>
 
